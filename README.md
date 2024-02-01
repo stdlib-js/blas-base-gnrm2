@@ -52,20 +52,32 @@ The [L2-norm][l2-norm] is defined as
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-gnrm2
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import gnrm2 from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@deno/mod.js';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@deno/mod.js';
+var gnrm2 = require( '@stdlib/blas-base-gnrm2' );
 ```
 
 #### gnrm2( N, x, stride )
@@ -99,7 +111,7 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var x0 = new Float64Array( [ 2.0, 1.0, 2.0, -2.0, -2.0, 2.0, 3.0, 4.0 ] );
 var x1 = new Float64Array( x0.buffer, x0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
@@ -156,8 +168,8 @@ var z = gnrm2.ndarray( 4, x, 2, 1 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import gnrm2 from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var gnrm2 = require( '@stdlib/blas-base-gnrm2' );
 
 var opts = {
     'dtype': 'float64'
@@ -197,7 +209,7 @@ console.log( out );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -251,8 +263,11 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
 [deno-url]: https://github.com/stdlib-js/blas-base-gnrm2/tree/deno
+[deno-readme]: https://github.com/stdlib-js/blas-base-gnrm2/blob/deno/README.md
 [umd-url]: https://github.com/stdlib-js/blas-base-gnrm2/tree/umd
+[umd-readme]: https://github.com/stdlib-js/blas-base-gnrm2/blob/umd/README.md
 [esm-url]: https://github.com/stdlib-js/blas-base-gnrm2/tree/esm
+[esm-readme]: https://github.com/stdlib-js/blas-base-gnrm2/blob/esm/README.md
 [branches-url]: https://github.com/stdlib-js/blas-base-gnrm2/blob/main/branches.md
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/blas-base-gnrm2/main/LICENSE
@@ -267,9 +282,9 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/blas/base/dnrm2]: https://github.com/stdlib-js/blas-base-dnrm2/tree/deno
+[@stdlib/blas/base/dnrm2]: https://github.com/stdlib-js/blas-base-dnrm2
 
-[@stdlib/blas/base/snrm2]: https://github.com/stdlib-js/blas-base-snrm2/tree/deno
+[@stdlib/blas/base/snrm2]: https://github.com/stdlib-js/blas-base-snrm2
 
 <!-- <related-links> -->
 
