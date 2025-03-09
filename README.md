@@ -52,43 +52,37 @@ The [L2-norm][l2-norm] is defined as
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-gnrm2
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-gnrm2 = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var gnrm2 = require( 'path/to/vendor/umd/blas-base-gnrm2/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.gnrm2;
-})();
-</script>
+var gnrm2 = require( '@stdlib/blas-base-gnrm2' );
 ```
 
 #### gnrm2( N, x, stride )
 
-Computes the [L2-norm][l2-norm] of a vector `x`.
+Computes the [L2-norm][l2-norm] of a vector.
 
 ```javascript
 var x = [ 1.0, -2.0, 2.0 ];
@@ -101,9 +95,9 @@ The function has the following parameters:
 
 -   **N**: number of indexed elements.
 -   **x**: input [`Array`][mdn-array] or [`typed array`][mdn-typed-array].
--   **stride**: index increment for `x`.
+-   **stride**: stride length.
 
-The `N` and `stride` parameters determine which elements in `x` are accessed at runtime. For example, to compute the [L2-norm][l2-norm] of every other element in `x`,
+The `N` and stride parameters determine which elements in the strided array are accessed at runtime. For example, to compute the [L2-norm][l2-norm] of every other element:
 
 ```javascript
 var x = [ 1.0, 2.0, 2.0, -7.0, -2.0, 3.0, 4.0, 2.0 ];
@@ -126,7 +120,7 @@ var z = gnrm2( 4, x1, 2 );
 // returns 5.0
 ```
 
-If either `N` or `stride` is less than or equal to `0`, the function returns `0`.
+If `N` is less than or equal to `0`, the function returns `0`.
 
 #### gnrm2.ndarray( N, x, stride, offset )
 
@@ -141,9 +135,9 @@ var z = gnrm2.ndarray( x.length, x, 1, 0 );
 
 The function has the following additional parameters:
 
--   **offset**: starting index for `x`.
+-   **offset**: starting index.
 
-While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the `offset` parameter supports indexing semantics based on a starting index. For example, to calculate the [L2-norm][l2-norm] for every other value in `x` starting from the second value
+While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameter supports indexing semantics based on a starting index. For example, to calculate the [L2-norm][l2-norm] for every other value in the strided array starting from the second value:
 
 ```javascript
 var x = [ 2.0, 1.0, 2.0, -2.0, -2.0, 2.0, 3.0, 4.0 ];
@@ -162,6 +156,7 @@ var z = gnrm2.ndarray( 4, x, 2, 1 );
 
 -   If `N <= 0`, both functions return `0.0`.
 -   `gnrm2()` corresponds to the [BLAS][blas] level 1 function [`dnrm2`][dnrm2] with the exception that this implementation works with any array type, not just Float64Arrays. Depending on the environment, the typed versions ([`dnrm2`][@stdlib/blas/base/dnrm2], [`snrm2`][@stdlib/blas/base/snrm2], etc.) are likely to be significantly more performant.
+-   Both functions support array-like objects having getter and setter accessors for array element access (e.g., [`@stdlib/array-base/accessor`][@stdlib/array/base/accessor]).
 
 </section>
 
@@ -173,14 +168,9 @@ var z = gnrm2.ndarray( 4, x, 2, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var gnrm2 = require( '@stdlib/blas-base-gnrm2' );
 
 var opts = {
     'dtype': 'float64'
@@ -190,11 +180,6 @@ console.log( x );
 
 var out = gnrm2( x.length, x, 1 );
 console.log( out );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -298,9 +283,11 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/blas/base/dnrm2]: https://github.com/stdlib-js/blas-base-dnrm2/tree/umd
+[@stdlib/array/base/accessor]: https://github.com/stdlib-js/array-base-accessor
 
-[@stdlib/blas/base/snrm2]: https://github.com/stdlib-js/blas-base-snrm2/tree/umd
+[@stdlib/blas/base/dnrm2]: https://github.com/stdlib-js/blas-base-dnrm2
+
+[@stdlib/blas/base/snrm2]: https://github.com/stdlib-js/blas-base-snrm2
 
 <!-- <related-links> -->
 
