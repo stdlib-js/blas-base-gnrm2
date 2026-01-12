@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-08-11)
+## Unreleased (2026-01-12)
 
 <section class="features">
 
@@ -22,6 +22,8 @@
 
 <details>
 
+-   [`4026f6b`](https://github.com/stdlib-js/stdlib/commit/4026f6b885a77192ae147c6314c691db8d375f26) - **docs:** add references _(by Athan Reines)_
+-   [`2035f34`](https://github.com/stdlib-js/stdlib/commit/2035f344a1a469278042b7532f034dc6119933b3) - **docs:** add function documentation _(by Athan Reines)_
 -   [`4dba421`](https://github.com/stdlib-js/stdlib/commit/4dba421f5bd8acafdd58e1c7681965b9ad267bc7) - **docs:** minor clean-up _(by Philipp Burckhardt)_
 -   [`f572d78`](https://github.com/stdlib-js/stdlib/commit/f572d7875370c83107013a400f32d1ec3f473acb) - **feat:** add accessor array support to `blas/base/gnrm2` [(#5778)](https://github.com/stdlib-js/stdlib/pull/5778) _(by Muhammad Haris, Athan Reines)_
 
