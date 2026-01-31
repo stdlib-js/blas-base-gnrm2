@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/blas-base-gnrm2",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Calculate the L2-norm of a vector.",
   "license": "Apache-2.0",
   "author": {
@@ -91,7 +91,6 @@
     "vector",
     "array"
   ],
-  "__stdlib__": {},
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/stdlib"
