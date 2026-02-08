@@ -59,13 +59,18 @@ The [L2-norm][l2-norm] is defined as
 ## Usage
 
 ```javascript
+import gnrm2 from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@deno/mod.js';
+```
+The previous example will load the latest bundled code from the deno branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/blas-base-gnrm2/tags). For example,
+
+```javascript
 import gnrm2 from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@v0.3.1-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@v0.3.1-deno/mod.js';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@deno/mod.js';
 ```
 
 #### gnrm2( N, x, stride )
@@ -158,7 +163,7 @@ var z = gnrm2.ndarray( 4, x, 2, 1 );
 
 ```javascript
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import gnrm2 from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@v0.3.1-deno/mod.js';
+import gnrm2 from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gnrm2@deno/mod.js';
 
 var opts = {
     'dtype': 'float64'
